@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-100 text-gray-900 font-semibold py-3 px-8 rounded-full transition-all duration-300 border-2 border-gray-900;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gray-600 text-center max-w-2xl mx-auto mb-12;
+  }
+}
+
+/* Hamburger Menu Animation */
+.hamburger-line {
+  @apply w-6 h-0.5 bg-current transition-all duration-300;
+}
+
+.hamburger-open .hamburger-line:nth-child(1) {
+  @apply rotate-45 translate-y-1.5;
+}
+
+.hamburger-open .hamburger-line:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburger-open .hamburger-line:nth-child(3) {
+  @apply -rotate-45 -translate-y-1.5;
+}
+
+/* Cart Badge Animation */
+@keyframes cartBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.cart-badge-bounce {
+  animation: cartBounce 0.3s ease-in-out;
+}
+
+/* Scroll Indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
