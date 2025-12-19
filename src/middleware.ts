@@ -23,7 +23,11 @@ export function middleware(request: NextRequest) {
       restaurantSlug = subdomain
     }
   }
-  // Production için: thekebabs.menusite.com veya thekebabstime.com.br
+  // Staging/Test domain'ler için (traefik.me, dokploy, etc.) - varsayılan kullan
+  else if (hostname.includes('traefik.me') || hostname.includes('dokploy')) {
+    restaurantSlug = 'thekebabs'
+  }
+  // Production için: thekebabs.menusite.com
   else if (parts.length >= 3) {
     restaurantSlug = parts[0]
   }
